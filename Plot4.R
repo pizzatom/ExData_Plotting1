@@ -1,16 +1,18 @@
 # Plot4
 
-# download data
-if(!file.exists("./data")){dir.create("./data")}
-
-# download data
+# download data (if it doesn't exist)
 f.url<-"https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 f.dest<-"household_power_consumption.zip"
-download.file(f.url,f.dest,method = "curl")
+
+if (!file.exists(f.dest)){
+  download.file(f.url,f.dest,method = "curl")  
+}
+
 
 # read data
-unzip(f.dest)
-#, colClasses = c("date","date","numeric","numeric","numeric","numeric","numeric","numeric","numeric")
+if (!file.exists("household_power_consumption.txt")){
+  unzip(f.dest)  
+}
 household_power_consumption <- read.table("household_power_consumption.txt", header=TRUE, sep=";")
 head(household_power_consumption)
 
