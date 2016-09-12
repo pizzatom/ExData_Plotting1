@@ -23,8 +23,7 @@ household_power_consumption$Date <- dmy(household_power_consumption$Date)
 dt <- subset(household_power_consumption, Date >= '2007-02-01' & Date <= '2007-02-02')
 
 # plot global active power historgram and save it as PNG
-global_active_power <- as.numeric(dt$Global_active_power,rm.na=T)
 par(mfrow=c(1,1))
-hist(global_active_power,breaks=14, col="red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
+hist(as.numeric(as.character(dt$Global_active_power)), col="red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
 dev.copy(png,'Plot1.png')
 dev.off()
