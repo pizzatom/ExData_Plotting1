@@ -20,6 +20,7 @@ dt <- subset(household_power_consumption, Date >= '2007-02-01' & Date <= '2007-0
 
 
 # submetering time series
+par(mfrow=c(1,1))
 plot(dt$Date_Time,dt$Sub_metering_1,"l",main="",xlab="", ylab="Energy submetering")
 lines(dt$Date_Time,dt$Sub_metering_2,col="red")
 lines(dt$Date_Time,dt$Sub_metering_3,col="blue")

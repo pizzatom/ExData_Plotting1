@@ -22,6 +22,7 @@ dt <- subset(household_power_consumption, Date >= '2007-02-01' & Date <= '2007-0
 
 
 # global active power time series 
+par(mfrow=c(1,1))
 plot(dt$Date_Time,global_active_power,"l",main = "",xlab = "",ylab = "Global Active Power (kilowatts)")
 dev.copy(png,'Plot2.png')
 dev.off()
